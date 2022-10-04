@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+
+<section style="background-image: url({% static 'assets/img/bbb.jpg' %}); ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="text-light"> <strong>Welcome to Online Medicine Donation System</strong> </h1>
+                  <h2 class="text-secondary">The aim and objective of this medicine donation project are to prepare a portal
+                      for the collection of unused medicine for further utilization by a needy person.</h2> <br>
+                  <a href="{% url 'base' %}" class="btn btn-info">Get Started</a>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+    </div>
+</section>
+<section id="doctors" class="doctors">
+      <div class="container">
+        <div class="section-title">
+          <h2>Doctors</h2>
+          <p></p>
+        </div>
+
+        <div class="row">
+            {% for doctor in doctor %}
+                  <div class="col-lg-6">
+                    <div class="member d-flex align-items-start">
+                      <div class="pic"><img src="{{ doctor.image.url }}" class="img-fluid" alt=""></div>
+                      <div class="member-info">
+                        <h4>{{ doctor.username }}</h4>
+                        <p>{{ doctor.email }}</p>
+                        <div class="social">
+                          <a href=""><i class="ri-twitter-fill"></i></a>
+                          <a href=""><i class="ri-facebook-fill"></i></a>
+                          <a href=""><i class="ri-instagram-fill"></i></a>
+                          <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            {% endfor %}
+        </div>
+      </div>
+    </section>
+{% endblock %}

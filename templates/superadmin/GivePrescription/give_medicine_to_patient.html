@@ -1,0 +1,16 @@
+{% extends 'superadmin/index.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post" action="{% url 'give_prescription_to_patient' medicine_id %}" xmlns="http://www.w3.org/1999/html">
+        {% csrf_token %}
+        <h1>Medicine Inventory!</h1>
+        <h3> <small> GIve Medicine From Here </small></h3>
+        {{ form|crispy }}
+        <br>
+        <input  class="btn btn-info" type="submit" value="Submit">
+
+    </form>
+{% endblock content %}
